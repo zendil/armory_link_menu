@@ -1,0 +1,12 @@
+## Interface: 72000
+## Title: Armory Link Menu
+## Notes: Ahhhh
+## Version: 1.0
+## Author: Zendil-The Underbog
+##
+## X-Curse-Packaged-Version: 1.0
+## X-Curse-Project-Name: armory_link_menu
+## X-Curse-Project-ID: armory_link_menu
+## X-Curse-Repository-ID: wow/armory_link_menu/mainline
+
+armory_link_menu.lua
