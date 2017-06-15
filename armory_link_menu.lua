@@ -7,11 +7,11 @@ elseif GetLocale() == "esMX" then
 elseif GetLocale() == "ptBR" then
 	--@localization(locale="ptBR", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "enGB" then
-	--@localization(locale="enGB", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+	--@localization(locale="enUS", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "frFR" then
 	--@localization(locale="frFR", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "deDE" then
-	--@localization(locale="f=deDE", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+	--@localization(locale="deDE", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "itIT" then
 	--@localization(locale="itIT", format="lua_additive_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "esES" then
