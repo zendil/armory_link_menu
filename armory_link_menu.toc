@@ -1,10 +1,10 @@
 ## Interface: 72000
 ## Title: Armory Link Menu
 ## Notes: Adds an armory link to the drop down menu.
-## Version: 1.0
+## Version: @project-version@
 ## Author: Zendil-The Underbog
 ##
-## X-Curse-Packaged-Version: 1.0
+## X-Curse-Packaged-Version: @project-version@
 ## X-Curse-Project-Name: armory_link_menu
 ## X-Curse-Project-ID: armory_link_menu
 ## X-Curse-Repository-ID: wow/armory_link_menu/mainline
