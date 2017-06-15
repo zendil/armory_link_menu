@@ -62,7 +62,8 @@ local sitestable = {
 	["zhCN"] = "https://worldofwarcraft.com/zh-cn/character/", --Wrong site, blame censorship
 	["zhTW"] = "https://worldofwarcraft.com/zh-tw/character/",
 }
-local site = sitestable[GetLocale()]
+local site = sitestable[GetLocale()] or "Error getting locale"
+--All web addresses are in english - not sure if this is how it actually works in other locales (is there a mundodeguerra.com?)
 
 --Frame Setup
 frame:Hide()
