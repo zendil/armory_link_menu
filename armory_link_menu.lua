@@ -1,3 +1,40 @@
+--Localization Tables
+local L
+if GetLocale() == "enUS" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esMX" then
+	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+else
+	--No locale or error locale
+end
+if not type(L) == "table" then
+	--failsafe locale table
+	L = {
+		["Armory Link"] = "Armory Link",
+		["Okay"] = "Okay"
+	}
 -- Create a new button type
 UnitPopupButtons["ARMORY_LINK"] = { text = "Armory Link", dist = 0 }
 
