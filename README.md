@@ -1,1 +1,1 @@
-# armory_link_menu
+Adds a simple, copy-able link to the armory on all player drop down frames.
