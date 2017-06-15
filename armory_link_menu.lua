@@ -1,37 +1,34 @@
 --Localization Tables
-local L
 if GetLocale() == "enUS" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+	local L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
-elseif GetLocale() == "esMX" then
-	L = --@localization(locale="enUS", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+	local L = --@localization(locale="esMX", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "ptBR" then
+	local L = --@localization(locale="ptBR", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "enGB" then
+	local L = --@localization(locale="enGB", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "frFR" then
+	local L = --@localization(locale="frFR", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "deDE" then
+	local L = --@localization(locale="f=deDE", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "itIT" then
+	local L = --@localization(locale="itIT", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "esES" then
+	local L = --@localization(locale="esES", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "ruRU" then
+	local L = --@localization(locale="ruRU", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "koKR" then
+	local L = --@localization(locale="koKR", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "zhCN" then
+	local L = --@localization(locale="zhCN", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
+elseif GetLocale() == "zhTW" then
+	local L = --@localization(locale="zhTW", format="lua_table", handle-unlocalized="english", handle-subnamespaces="concat")@
 else
 	--No locale or error locale
 end
-if not type(L) == "table" then
+if not L then
 	--failsafe locale table
-	L = {
+	local L = {
 		["Armory Link"] = "Armory Link",
 		["Okay"] = "Okay"
 	}
