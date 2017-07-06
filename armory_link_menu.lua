@@ -97,6 +97,9 @@ button:SetScript("OnClick", function() ArmoryLinkFrameClose:Click() end)
 -- Add it to the FRIEND and PLAYER menus as the 2nd to last option (before Cancel)
 table.insert(UnitPopupMenus["FRIEND"], #UnitPopupMenus["FRIEND"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["PLAYER"], #UnitPopupMenus["PLAYER"], "ARMORY_LINK")
+table.insert(UnitPopupMenus["PARTY"], #UnitPopupMenus["PARTY"], "ARMORY_LINK")
+table.insert(UnitPopupMenus["RAID"], #UnitPopupMenus["RAID"], "ARMORY_LINK")
+table.insert(UnitPopupMenus["RAID_PLAYER"], #UnitPopupMenus["RAID_PLAYER"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["SELF"], #UnitPopupMenus["SELF"], "ARMORY_LINK")
 
 -- Your function to setup your button
