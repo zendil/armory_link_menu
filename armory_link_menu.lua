@@ -94,13 +94,14 @@ button:SetWidth(50)
 button:SetText(L["Okay"])
 button:SetScript("OnClick", function() ArmoryLinkFrameClose:Click() end)
 
--- Add it to the FRIEND and PLAYER menus as the 2nd to last option (before Cancel)
+-- Add it to the FRIEND, PLAYER, PARTY, RAID, RAID_PLAYER, and SELF menus as the 2nd to last option (before Cancel)
+-- place it as 3rd to last on self so that its before 'leave party'
 table.insert(UnitPopupMenus["FRIEND"], #UnitPopupMenus["FRIEND"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["PLAYER"], #UnitPopupMenus["PLAYER"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["PARTY"], #UnitPopupMenus["PARTY"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["RAID"], #UnitPopupMenus["RAID"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["RAID_PLAYER"], #UnitPopupMenus["RAID_PLAYER"], "ARMORY_LINK")
-table.insert(UnitPopupMenus["SELF"], #UnitPopupMenus["SELF"], "ARMORY_LINK")
+table.insert(UnitPopupMenus["SELF"], #UnitPopupMenus["SELF"] - 2, "ARMORY_LINK")
 
 -- Your function to setup your button
 function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOffset, menuList, button, autoHideDelay)
