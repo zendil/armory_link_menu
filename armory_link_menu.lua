@@ -159,8 +159,10 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 					button.func = function()
 						-- Function for the button
 						--Set edit box
-						edit:SetText(site..server.."/"..name)
-						frame:Show()
+						if name and server then
+							edit:SetText(site..server.."/"..name)
+							frame:Show()
+						end
 					end
 				else
 					button.func = function()
