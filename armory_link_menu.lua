@@ -29,7 +29,7 @@ else
 end
 if next(L) == nil then
 	--failsafe locale table
-	local L = {
+	L = {
 		["Armory Link"] = "Armory Link",
 		["Okay"] = "Okay"
 	}
