@@ -102,39 +102,78 @@ table.insert(UnitPopupMenus["PARTY"], #UnitPopupMenus["PARTY"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["RAID"], #UnitPopupMenus["RAID"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["RAID_PLAYER"], #UnitPopupMenus["RAID_PLAYER"], "ARMORY_LINK")
 table.insert(UnitPopupMenus["SELF"], #UnitPopupMenus["SELF"] - 2, "ARMORY_LINK")
+--Bnet friend menu handle is "BN_FRIEND"
+table.insert(UnitPopupMenus["BN_FRIEND"], #UnitPopupMenus["BN_FRIEND"], "ARMORY_LINK")
 
 -- Your function to setup your button
 function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOffset, menuList, button, autoHideDelay)
     -- Make sure we have what we need to continue
-    if (dropDownFrame and level) then
-		
-        -- Just so we don't have to concat strings for each interval
-        local buttonPrefix = "DropDownList" .. level .. "Button"
-        -- Start at 2 because 1 is always going to be the title (i.e. player name) in our case
-        local i = 2
-        while (1) do
-            -- Get the button at index i in the dropdown
-            local button = _G[buttonPrefix..i]
-            if (not button) then break end
-            -- If the button is our button...
-            if (button:GetText() == UnitPopupButtons["ARMORY_LINK"].text) then
-                -- Make it execute function for player that this menu popped up for (button at index 1)
-                button.func = function()
-					-- Function for the button
-					--Get the name and realm
-					local name = dropDownFrame.name:lower()
-					local server = dropDownFrame.server or GetRealmName()
-					server = server:gsub(" ", "-"):gsub("'", ""):lower()
-					--Set edit box
-					edit:SetText(site..server.."/"..name)
-					frame:Show()
+    if dropDownFrame and level then
+		local name, server
+		local active = true
+		if dropDownFrame.which == "BN_FRIEND" then
+			--bnet friend menu
+			if dropDownFrame.bnetIDAccount then
+				--get the gameaccount id and the game
+				local _,_,_,_,_,gameaccount,game = BNGetFriendInfoByID(dropDownFrame.bnetIDAccount)
+				if game == BNET_CLIENT_WOW then
+					--if they are playing wow then get the character and server
+					name = select(2, BNGetGameAccountInfo(gameaccount))
+					server = select(4, BNGetGameAccountInfo(gameaccount))
+				else
+					--otherwise, disable. they are playing a different game
+					active = false
 				end
-                -- Break the loop; we got what we were looking for.
-                break
-            end
-            i = i + 1
-        end
-    end
+			end
+		else
+			--other menu
+			name = dropDownFrame.name:lower()
+			server = dropDownFrame.server or GetRealmName()
+		end
+		--format servername
+		if server then 
+			server = server:gsub("'", "")
+			local ii = 0
+			while server:find("(%u%l+)(%u%l+)") do
+				server = server:gsub("(%u%l+)(%u%l+)", "%1 %2")
+				ii = ii + 1
+				if ii > 5 then
+					break
+				end
+			end
+			server = server:gsub("(%u%l+)(%d+)", "%1 %2"):gsub(" ", "-"):lower()
+		end
+		-- Just so we don't have to concat strings for each interval
+		local buttonPrefix = "DropDownList" .. level .. "Button"
+		-- Start at 2 because 1 is always going to be the title (i.e. player name) in our case
+		local i = 2
+		while (1) do
+			-- Get the button at index i in the dropdown
+			local button = _G[buttonPrefix..i]
+			if not button then break end
+			-- If the button is our button...
+			if button:GetText() == UnitPopupButtons["ARMORY_LINK"].text then
+				if active == true then
+					-- Make it execute function for player that this menu popped up for (button at index 1)
+					button.func = function()
+						-- Function for the button
+						--Set edit box
+						edit:SetText(site..server.."/"..name)
+						frame:Show()
+					end
+				else
+					button.func = function()
+						-- Function for the button
+						--player not playing wow
+						print("Armory Link Menu: This player is not logged in to a character on WoW.")
+					end
+				end
+				-- Break the loop; we got what we were looking for.
+				break
+			end
+			i = i + 1
+		end
+	end
 end
 
 -- Hook ToggleDropDownMenu with your function
