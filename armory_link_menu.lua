@@ -109,8 +109,7 @@ table.insert(UnitPopupMenus["BN_FRIEND"], #UnitPopupMenus["BN_FRIEND"], "ARMORY_
 function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOffset, menuList, button, autoHideDelay)
     -- Make sure we have what we need to continue
     if dropDownFrame and level then
-		local name, server
-		local active = true
+		local name, server, active
 		if dropDownFrame.which == "BN_FRIEND" then
 			--bnet friend menu
 			if dropDownFrame.bnetIDAccount then
@@ -120,6 +119,7 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 					--if they are playing wow then get the character and server
 					name = select(2, BNGetGameAccountInfo(gameaccount))
 					server = select(4, BNGetGameAccountInfo(gameaccount))
+					active = true
 				else
 					--otherwise, disable. they are playing a different game
 					active = false
@@ -129,6 +129,7 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 			--other menu
 			name = dropDownFrame.name:lower()
 			server = dropDownFrame.server or GetRealmName()
+			active = true
 		end
 		--format servername
 		if server then 
