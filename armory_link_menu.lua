@@ -127,9 +127,13 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 			end
 		else
 			--other menu
-			name = dropDownFrame.name:lower()
-			server = dropDownFrame.server or GetRealmName()
-			active = true
+			if dropDownFrame.name then
+				name = dropDownFrame.name:lower()
+				server = dropDownFrame.server or GetRealmName()
+				active = true
+			else
+				active = false
+			end
 		end
 		--format servername
 		if server then 
@@ -159,10 +163,8 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 					button.func = function()
 						-- Function for the button
 						--Set edit box
-						if name and server then
-							edit:SetText(site..server.."/"..name)
-							frame:Show()
-						end
+						edit:SetText(site..server.."/"..name)
+						frame:Show()
 					end
 				else
 					button.func = function()
