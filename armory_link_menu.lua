@@ -183,3 +183,6 @@ end
 
 -- Hook ToggleDropDownMenu with your function
 hooksecurefunc("ToggleDropDownMenu", Armory_Link_Setup);
+
+--Remove interact distance requirement
+UnitPopupButtons["ARMORY_LINK"].dist = nil
