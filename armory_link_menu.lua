@@ -114,11 +114,12 @@ function Armory_Link_Setup(level, value, dropDownFrame, anchorName, xOffset, yOf
 			--bnet friend menu
 			if dropDownFrame.bnetIDAccount then
 				--get the gameaccount id and the game
-				local _,_,_,_,_,gameaccount,game = BNGetFriendInfoByID(dropDownFrame.bnetIDAccount)
-				if game == BNET_CLIENT_WOW then
+				local friendinfo = C_BattleNet.GetAccountInfoByID(dropDownFrame.bnetIDAccount);
+				local gameaccount = friendinfo.gameAccountInfo;
+				if gameaccount.clientProgram == BNET_CLIENT_WOW then
 					--if they are playing wow then get the character and server
-					name = select(2, BNGetGameAccountInfo(gameaccount))
-					server = select(4, BNGetGameAccountInfo(gameaccount))
+					name = gameaccount.characterName;
+					server = gameaccount.realmName;
 					active = true
 				else
 					--otherwise, disable. they are playing a different game
